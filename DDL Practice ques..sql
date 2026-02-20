@@ -1,0 +1,46 @@
+DROP TABLE Student;
+# CREATE A TABLE STUDENT WITH COLUMNS-
+  # student_id(Primary Key)
+  # name
+  # age
+  # email(unique)
+CREATE TABLE Student (
+student_id INT PRIMARY KEY,
+name VARCHAR(50),
+age INT,
+email VARCHAR(50)
+);
+DESCRIBE Student;
+
+# CREATE A TABLE COURSE WITH-
+  # course_id
+  # couse_name
+  # duration
+CREATE TABLE Course (
+course_id INT PRIMARY KEY,
+course_name VARCHAR(50),
+duration INT
+);
+DESCRIBE Course;
+
+# ADD A COLUMN PHONE_NUMBER TO THE STUDENT TABLE-
+ALTER TABLE Student ADD phone_number VARCHAR(15);
+
+# CHANGE THE DATATYPE OF AGE FROM INT TO SMALLINT-
+ALTER TABLE Student MODIFY age SMALLINT;
+
+# RENAME THE TABLE STUDENT TO STUDENTS-
+ALTER TABLE Student RENAME TO Students;
+
+# DROP THE COLUMN DURATION FROM THE COURSE TABLE-
+ALTER TABLE Course DROP COLUMN duration;
+
+# ADD A CHECK CONSTRAINT TO ENSURE AGE>=18-
+ALTER TABLE Students MODIFY age SMALLINT CHECK (age>=18);
+
+
+
+
+
+
+ 
