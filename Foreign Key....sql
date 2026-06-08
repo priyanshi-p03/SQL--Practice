@@ -1,0 +1,36 @@
+# FOREIGN KEY
+# is use to create relationship b/w two tables internally
+
+DROP DATABASE UNI;
+CREATE DATABASE IF NOT EXISTS UNI;
+USE UNI;
+
+CREATE TABLE course(
+cid INT PRIMARY KEY AUTO_INCREMENT,
+cname VARCHAR(50) NOT NULL,
+cfee DECIMAL(8,2)
+);
+
+CREATE TABLE student(
+sid INT PRIMARY KEY AUTO_INCREMENT,
+sname VARCHAR(50) NOT NULL,
+sadd VARCHAR(100) NOT NULL,
+cid INT NOT NULL,
+FOREIGN KEY(cid) REFERENCES course(cid) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+INSERT INTO course VALUES
+(301, 'Data Engineering', 72300),
+(302, 'Python DSA', 45678);
+
+INSERT INTO student VALUE(101, 'Raman', 'Noida', 301);
+
+SELECT * FROM student;
+UPDATE course SET cid=305 WHERE cid=301;
+
+DESCRIBE student;
+ALTER TABLE student MODIFY cid INT NOT NULL;
+
+# DROP FOREIGN KEY
+ALTER TABLE student DROP FOREIGN KEY student_ibfk_1;
+SHOW CREATE TABLE student;
